@@ -1,0 +1,103 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Détails de
+	{{ product.slug }}
+{% endblock %}
+
+{% block body %}
+	<main
+		class="container">
+		{# <pre>
+								    {{ dump() }}
+								</pre> #}
+		<div>
+			<div class="row">
+				<h1>La fiche détaillée:
+					{{ product.slug }}
+				</h1>
+			</div>
+
+			<div class="row col row-cols-md-2 g-4">
+				<div class="col my-3">
+
+					<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-inner">
+							{% if product.getImages() is not null and product.getImages() is not empty %}
+								{% set active = 'active' %}
+								{% for img in product.getImages()  %}
+									<div class="carousel-item {{ active }}">
+										<img src="{{ asset("ressources/images/" ~ img.path) }}" class="d-block w-100" alt="category image">
+									</div>
+									{% set active = '' %}
+								{% endfor %}
+							{% else %}
+								<div class="carousel-item active">
+									<img src="{{ asset("ressources/images/350x350.png") }}" class="d-block w-100" alt="category image">
+								</div>
+
+							{% endif %}
+
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+				</div>
+
+				<div>
+					<div class="mb-3">
+						<h2>{{ product.name }}</h2>
+					</div>
+					<div class="mb-3">
+						<h3>{{ product.price / 100 }}
+							€</h3>
+					</div>
+
+					{% if product.getStock() is not null and product.getStock() is not empty %}
+						<form method='post' action='{{ path('panier_index') }}' class="row col row-cols-md-2">
+							<div class="my3">
+								<select name="qqty" id="qqty" class="form-select">
+									{% if product.getStock() >= 5 %}
+										{% for qqty in 1..5 %}
+											<option value="{{ qqty }}">{{ qqty }}</option>
+										{% endfor %}
+									{% else %}
+										{% for qqty in 1..product.getStock() %}
+											<option value="{{ qqty }}">{{ qqty }}</option>
+										{% endfor %}
+									{% endif %}
+								</select>
+							</div>
+							<div class="col">
+							<input type="hidden" name="id_product" value="{{ product.id }}">
+							<button class="btn btn-primary" type"submit"> Ajouter au panier</button>
+							</div>
+						</form>
+					{% else %}
+						<div class="row col row-cols-md-2">
+							<div class="my3">
+								<p>Le produit n'est plus disponible</p>
+							</div>
+						</div>
+					{% endif %}
+				</div>
+
+				<div class="row my-3">
+					<div>
+						<h4>Description</h4>
+					</div>
+
+					<div>
+						<p>{{ product.description | raw }}</p>
+					</div>
+				</div>
+			</div>
+		</main>
+
+
+	{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+
+{% block body %}
+	<section class="container">
+
+		<div class="img-fluid">
+			<img src="{{ asset('ressources/images/banner-homepage-eg.jpg') }}" alt="banner">
+		</div>
+
+		<div id="by-age-decoration">
+			<div class="nav justify-content-around">
+				<div class="border rounded-top">
+					<a class="nav-link" href="#">0-3 ans</a>
+				</div>
+				<div class="border rounded-top">
+					<a class="nav-link" href="#">4-6 ans</a>
+				</div>
+				<div class="border rounded-top">
+					<a class="nav-link" href="#">7-10 ans</a>
+				</div>
+				<div class="border rounded-top">
+					<a class="nav-link " href="#">11-14 ans</a>
+				</div>
+			</div>
+		</div>
+
+		{# 
+		{{ dump() }}; 
+		#}
+
+		<div class="row row-cols-1 row-cols-md-4 g-4 mt-3">
+			{% for category in categories %}
+				<div class="col">
+					<div class="card h-100">
+						<img src="{{ asset("ressources/images/" ~ category.photo) }}" class="card-img-top" alt="category image">
+						<div class="card-body">
+							<h3 class="card-title">{{ category.name }}</h3>
+							<a href="{{ path('categories_list', {slug:category.slug} )}}" class="btn btn-info">Voir les produits</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+</section>
+{% endblock %}

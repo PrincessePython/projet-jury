@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Modifier mes coordonnés{% endblock %}
+
+{% block body %}
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+            <img class="rounded-circle mt-5" width="150px" src="{{ asset("ressources/images/blank-profile-picture-640x640.png") }}">
+            <span class="my-3">Mon profil</span>
+            </div>
+        </div>
+
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center my-3">
+                    <h4 class="text-right">Ajouter ou Modifer mon adresse </h4>
+                </div>
+                {{ form_start(registrationForm) }}
+
+                    {{ form_row(registrationForm.address) }}
+                    {{ form_row(registrationForm.zipcode) }}
+                    {{ form_row(registrationForm.city) }}
+                    {{ form_row(registrationForm.country) }}
+                    
+
+				<button type="submit" class="btn btn-primary btn-lg my-4">Sauvgarder</button>
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+        <div class="col-md-4 my-3">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center my-2"><a href="{{ path('profile') }}" class="btn">Mon profil</a></div>
+                <div class="d-flex justify-content-between align-items-center my-2"><a href="#" class="btn item-action active" aria-current="true">Mon Adresse</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}
+
+
+
+                {# <div class="row mt-2">
+                    <div class="col-md-6">{{ form_row(registrationForm.first_name) }}</div>
+                    <div class="col-md-6">{{ form_row(registrationForm.last_name) }}</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+                </div> #}
+                {# <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Adresse 1</label><input type="text" class="form-control" placeholder="entez address line 1" value=""></div>
+                    <div class="col-md-12"><label class="labels">Adresse 2</label><input type="text" class="form-control" placeholder="entez address line 2" value=""></div>
+                    <div class="col-md-12"><label class="labels">Code postale</label><input type="text" class="form-control" placeholder="entez vonte code postal" value=""></div>
+                </div> #}
+                {# <div class="row mt-3">
+                    <div class="col-md-6"><label class="labels">Ville</label><input type="text" class="form-control" placeholder="ville" value=""></div>
+                    <div class="col-md-6"><label class="labels">Pays</label><input type="text" class="form-control" value="" placeholder="pays"></div>
+                </div> #}
+
+
+
+
+
+
