@@ -1,6 +1,7 @@
 {% for label, messages in app.flashes %}
 
     {# Ce code me permettra d'afficher tous les alerts differents  dans les pages differentes #}
+	
     {% for message in messages %}
         <div class="alert alert-{{ label }} alert-dismissible" role="alert">
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
