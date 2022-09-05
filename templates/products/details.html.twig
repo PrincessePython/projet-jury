@@ -54,8 +54,8 @@
 						<h2>{{ product.name }}</h2>
 					</div>
 					<div class="mb-3">
-						<h3>{{ product.price / 100 }}
-							€</h3>
+						<h3>{{ (product.price / 100) |format_currency('EUR', locale='fr') }}
+							</h3>
 					</div>
 
 					{% if product.getStock() is not null and product.getStock() is not empty %}

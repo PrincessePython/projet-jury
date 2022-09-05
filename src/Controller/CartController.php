@@ -45,6 +45,7 @@ class CartController extends AbstractController
         }
 
         // Est-ce que l'utilisateur demande un ajout dans panier ?
+
         if(isset($_POST['id_product']) && isset($_POST['qqty'])) {
             // Je remplie les-sous tableaux du panier
 
@@ -58,7 +59,8 @@ class CartController extends AbstractController
                 $panier['image'][] = '350x350.png';
 
             }
-            //rajouter le titre et le prix dans le sous-indices de panier
+
+            // JE rajoute le titre et le prix dans le sous-indices de panier
 
             $panier['id_product'][] = $_POST['id_product'];
             $panier['qqty'][] = $_POST['qqty'];

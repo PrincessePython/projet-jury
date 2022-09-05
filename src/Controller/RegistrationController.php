@@ -51,6 +51,7 @@ class RegistrationController extends AbstractController
 
 
             // générer le jwt de l'utilisateur:
+            
             // 1. créer le header (voir le doc su jwt.io)
             $header = [
                 'alg' => 'HS256',
@@ -158,7 +159,7 @@ class RegistrationController extends AbstractController
 
             // envoie d'un emal
             $mailer->send(
-                'no-reply@playducatif.fr',
+                'bienvenue@portfolio.codeuse.me',
                 $user->getEmail(),
                 'Activation de votre compte sur le site Playducatif',
                 'register',
