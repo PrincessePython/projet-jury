@@ -40,8 +40,14 @@ class ProfileController extends AbstractController
             $address->setCity($address->getCity());
             $address->setCountry($address->getCountry());
 
+            /*
+            Pour valider les données avant les mettre dans la bdd
+            if ($form->isSubmitted && $form->isValid())
+            */
+            
             // $address = $form->getData();
 
+            // je mets les infos dans la base des données
             $entityManager->persist($address);
             $entityManager->flush();
 
