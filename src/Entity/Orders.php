@@ -29,6 +29,9 @@ class Orders
     #[ORM\OneToMany(mappedBy: 'orders', targetEntity: OrdersDetails::class, orphanRemoval: true)]
     private $ordersDetails;
 
+    #[ORM\OneToOne(mappedBy: 'linkToOrder', targetEntity: PaymentRequest::class, cascade: ['persist', 'remove'])]
+    private $paymentRequest;
+
     public function __construct()
     {
         $this->ordersDetails = new ArrayCollection();
@@ -107,6 +110,28 @@ class Orders
                 $ordersDetail->setOrders(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPaymentRequest(): ?PaymentRequest
+    {
+        return $this->paymentRequest;
+    }
+
+    public function setPaymentRequest(?PaymentRequest $paymentRequest): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($paymentRequest === null && $this->paymentRequest !== null) {
+            $this->paymentRequest->setLinkToOrder(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($paymentRequest !== null && $paymentRequest->getLinkToOrder() !== $this) {
+            $paymentRequest->setLinkToOrder($this);
+        }
+
+        $this->paymentRequest = $paymentRequest;
 
         return $this;
     }

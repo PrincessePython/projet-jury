@@ -34,7 +34,10 @@
             {% if app.user %}
                 {% if 'ROLE_ADMIN' in app.user.roles %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('admin') }}">Admin</a>
+                    <a class="nav-link" href="{{ path('admin') }}">Ma base des données</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path ('app_admin_payment_request_index')}}">Paiements</a>
                 </li>
                 {% endif %}
                 <li class="nav-item">
