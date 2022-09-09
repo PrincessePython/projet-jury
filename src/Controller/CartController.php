@@ -20,7 +20,7 @@ class CartController extends AbstractController
     {
         // dd($request);
         // var_dump($request);
-        // recuperation de lasession
+        // recuperation de la session
         $session = $request->getSession();
 
         //si la partie cart exciste dans la session
@@ -60,13 +60,14 @@ class CartController extends AbstractController
 
             }
 
-            // JE rajoute le titre et le prix dans le sous-indices de panier
+            // Je rajoute le titre et le prix dans le sous-indices de panier
 
             $panier['id_product'][] = $_POST['id_product'];
             $panier['qqty'][] = $_POST['qqty'];
             $panier['title'][] = $product->getName(); 
             $panier['price'][] = $product->getPrice()/100 ;
             $panier['reference'][] = $product->getProductReference();
+            
 
         }
         // var_dump($panier);
@@ -80,21 +81,20 @@ class CartController extends AbstractController
         // $panier = $session->get('panier', []);
         // dd($panier);
         // dd($_POST);
-        
+
         //var_dump($session);
+
         $nbItems = count($panier['id_product']);
         return $this->render('cart/index.html.twig',[
             'panier' => $panier,
             'nbItems' => $nbItems,
             'message' => ''
         ]);
-        // je cree un tableu des produits
- 
-       
 
-        // Je sauvgarde dans la session
-
-        
+        //calculer la quantité total des produits ajoutés
+        // $infoPanierQQT = [];
+        // $totalPanierPrix = [];     
+                    
     }
 
     #[Route('/paiement', methods:['POST', 'GET'], name:'pay')]

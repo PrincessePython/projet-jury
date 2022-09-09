@@ -19,10 +19,10 @@
                 </div>
 
                 <div class="row my-2">
-                    <div class="col-md-12 my-2"><label class="labels">Prénom:</label></div>
-                    <div class="col-md-12 my-2"><label class="labels">Nom:</label></div>
-                    <div class="col-md-12 my-2"><label class="labels">Date de naissance:</label></div>
-                    <div class="col-md-12 my-2"><label class="labels">Email:</label></div>
+                    <div class="col-md-12 my-2"><label class="labels me-3">Prénom:</label>{{ user.firstName }}</div>
+                    <div class="col-md-12 my-2"><label class="labels me-3">Nom:</label>{{ user.lastName }}</div>
+                    <div class="col-md-12 my-2"><label class="labels me-3">Date de naissance:</label>{{ user.dateOfBirth|date("m/d/Y") }}</div>
+                    <div class="col-md-12 my-2"><label class="labels me-3">Email:</label>{{ user.email }}</div>
                 </div>
                 <div class="mt-5 text-center"><a href="{{ 'modify' }}" class="btn btn-success">Ajouter mon adresse de livraison</a></div>
             </div>

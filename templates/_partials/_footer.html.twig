@@ -1,55 +1,55 @@
 <!-- start Footer -->
 
-<footer class="d-flex justify-content-evenly container-fluid bg-light mt-5 mb-2">
+<footer class="d-flex justify-content-evenly container-fluid bg-light mt-5 mb-2 ">
+	<div class="container row text-center">
+		<div class="col-12 col-md-6 col-lg-4 order-sm-1 order-md-1 order-lg-1 p-2">
+			<h5>Mentions Légales</h5>
+			<ul class="nav flex-column">
+				<li class="nav-item mb-2">
+					<a href="{{ asset("ressources/reglementaire/CGU-jury-playducatif.pdf")}}" target="_blank" class="text-decoration-none text-dark">CGU</a>
+				</li>
+				<li class="nav-item mb-2">
+					<a href="{{ asset("ressources/reglementaire/CGV-playducatif-projet-jury.pdf")}}" target="_blank" class="text-decoration-none text-dark">CGV</a>
+				</li>
+				<li class="nav-item mb-2">
+					<a href="{{ asset("ressources/reglementaire/politique-de-confidentialite.pdf")}}" target="_blank" class="text-decoration-none text-dark">Politique de confidentialité</a>
+				</li>
+			</ul>
+		</div>
 
-	<div class="col-2 mt-3">
-		<h5>Mentions Légales</h5>
-		<ul class="nav flex-column">
-			<li class="nav-item mb-2">
-				<a href="{{ asset("ressources/reglementaire/CGU-jury-playducatif.pdf")}}" target="_blank" class="text-decoration-none text-dark">CGU</a>
-			</li>
-			<li class="nav-item mb-2">
-				<a href="{{ asset("ressources/reglementaire/CGV-playducatif-projet-jury.pdf")}}" target="_blank" class="text-decoration-none text-dark">CGV</a>
-			</li>
-			<li class="nav-item mb-2">
-				<a href="{{ asset("ressources/reglementaire/politique-de-confidentialite.pdf")}}" target="_blank" class="text-decoration-none text-dark">Politique de confidentialité</a>
-			</li>
-		</ul>
-	</div>
+		<div class="col-12 col-md-6 col-lg-4 order-sm-1 order-md-1 order-lg-1 p-2">
+			<h5>Navigation</h5>
+			<ul class="nav flex-column">
+				<li class="nav-item mb-2">
+					<a href="{{ path('home')}}" class="text-decoration-none text-dark">Accueil</a>
+				</li>
+				<li class="nav-item mb-2">
+					<a href="{{ path('products')}}" class="text-decoration-none text-dark">Produits</a>
+				</li>
+				<li class="nav-item mb-2">
+					<a href="{{ path('home') }}#cat-homepage" class="text-decoration-none text-dark">Categories</a>
+				</li>
+			</ul>
+		</div>
 
-	<div class="col-2 mt-3">
-		<h5>Navigation</h5>
-		<ul class="nav flex-column">
-			<li class="nav-item mb-2">
-				<a href="{{ path("home")}}" class="text-decoration-none text-dark">Accueil</a>
-			</li>
-			<li class="nav-item mb-2">
-				<a href="{{ path('products')}}" class="text-decoration-none text-dark">Produits</a>
-			</li>
-			<li class="nav-item mb-2">
-				<a href="{{ path("home")}}" class="text-decoration-none text-dark">Categories</a>
-			</li>
-		</ul>
-	</div>
+		<div class="col-12 col-md-6 col-lg-4 order-sm-1 order-md-1 order-lg-1 p-2">
+			<h5>Nous Contacter</h5>
+			<ul class="nav flex-column">
 
-	<div class="col-2 mt-3">
-		<h5>Nous Contacter</h5>
-		<ul class="nav flex-column">
-			<li class="nav-item mb-2">
-				Nom de la Societé
-			</li>
-			<li class="nav-item mb-2">
-				Addresse postale
-			</li>
-			<li class="nav-item mb-2">
-				Numero de Téléphone
-			</li>
-		</ul>
+				<li class="nav-item mb-2">
+					 1, rue du Temple 75001 Paris
+				</li>
+				<li class="nav-item mb-2">
+					 +33 1 00 00 00 00
+				</li>
+				<li class="nav-item mb-2"><a class="text-decoration-none text-dark" target="_blank" href="mailto:bienvenue@portfolio.codeuse.me" >bienvenue@portfolio.codeuse.me</a></li>
+			</ul>
+		</div>
+
 	</div>
 
 	<div class="d-flex py-4 my-4 border-top">
-		<p><i class="fa-regular fa-copyright"></i> Playducatif  2022 | <a href="{{ path("home")}}">www.playducatif.fr</a>  | Tous droits reservés</p>
+		<p><i class="fa-regular fa-copyright"></i> Playducatif  2022 | <a class="text-decoration-none text-dark" href="{{ path("home")}}">www.playducatif.fr</a>  | Tous droits reservés</p>
 	</div>
-
 </footer>
 <!-- end Footer -->
