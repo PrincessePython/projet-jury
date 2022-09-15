@@ -17,7 +17,7 @@
 {% endblock %} #}
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription{% endblock %}
+{% block title %}Inscription | Playducatif - spécialiste des jeux éducatifs{% endblock %}
 
 {% block body %}
 	
@@ -42,9 +42,8 @@
                     <legend>Mes Coordonnées</legend>
                         {{ form_row(registrationForm.email) }}
                         {{ form_row(registrationForm.telephone) }}                    
-				{{ form_row(registrationForm.plainPassword, {
-                label: 'Password'
-                }) }}
+				        {{ form_row(registrationForm.plainPassword, {label: 'Password'}) }}
+                        
                 </fieldset>
 				
 				

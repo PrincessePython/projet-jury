@@ -16,10 +16,10 @@
                 <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('home') }}#cat-homepage">Categories</a>
+                <a class="nav-link" href="{{ path('home') }}#cat-homepage">Catégories</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('products') }}">Products</a>
+                <a class="nav-link" href="{{ path('products') }}">Produits</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ 'panier' }}">Panier</a>
@@ -36,15 +36,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('admin') }}">Ma base des données</a>
                 </li>
-                <li class="nav-item">
+                <!-- Le bouton qui va être ectivé une fois le systéme de paiement est en place -->
+                {# <li class="nav-item">
                     <a class="nav-link" href="{{ path ('app_admin_payment_request_index')}}">Paiements</a>
-                </li>
+                </li> #}
                 {% endif %}
                 <li class="nav-item">
                     <a href="{{ path('profile') }}" class="nav-link">Mon Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ path('app_logout') }}" class="nav-link">Me deconnecter</a>
+                    <a href="{{ path('app_logout') }}" class="nav-link">Me déconnecter</a>
                 </li>
             {% else %}
                 <li class="nav-item">

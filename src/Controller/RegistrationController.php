@@ -32,7 +32,7 @@ class RegistrationController extends AbstractController
         JWTService $jwt): Response
     {
         $user = new Users();
-        $form = $this->createForm(RegistrationFormType::class, $user);
+        $form = $this->createForm(RegistrationFormType::class, $user); 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -47,10 +47,8 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // do anything else you need here, like send an email
-
-
-            // générer le jwt de l'utilisateur:
+   
+           // générer le jwt de l'utilisateur:
             
             // 1. créer le header (voir le doc su jwt.io)
             $header = [
@@ -96,7 +94,7 @@ class RegistrationController extends AbstractController
     #[Route('/verification/{token}', name: 'verify_user')]
     public function verifyUser($token, JWTService $jwt, UsersRepository $usersRepository, EntityManagerInterface $entityManager): Response
     {
-    //    dd($jwt->isValid($token));
+    // dd($jwt->isValid($token));
     // dd($jwt->getPayload($token));
     // dd($jwt->isExpired($token));
     // dd($jwt->check($token, $this->getParameter('app.jwtsecret')));

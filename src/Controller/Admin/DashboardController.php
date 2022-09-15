@@ -63,13 +63,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Categories','fas fa-list', Categories::class );
         yield MenuItem::linkToCrud('Images', 'fa fa-photo', Images::class);
 
-        yield MenuItem::section('Orders');
-        yield MenuItem::linkToCrud('Commandes', 'fa fa-truck', Orders::class );
-        yield MenuItem::linkToCrud('Détailles des commandes', 'fa fa-list', OrdersDetails::class);
+        // les liens suivants seront desactivés une fois le systeme de paiement est mise en ligne.
+        // yield MenuItem::section('Orders');
+        // yield MenuItem::linkToCrud('Commandes', 'fa fa-truck', Orders::class );
+        // yield MenuItem::linkToCrud('Détailles des commandes', 'fa fa-list', OrdersDetails::class);
 
-
-        // yield MenuItem::linkToDashboard('Orders', 'fa fa-list');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
 

@@ -1,11 +1,25 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9751EPJGT6"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-9751EPJGT6');
+	</script>
+	
 	<meta charset="utf-8">
 	{# balise meta qui permettra annoncer que mon site est responsive  #}
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+	<meta name="description" consent="Découvrez notre gamme de jeux éducatifs pour développer la motricité fine, la motricité globale, la lecture, la concentration, langage oral, langage écrit tout en s'amusant avec Playeducatif.">
 
-	<title>{% block title %}Pladucatif-Homepage{% endblock %}</title>
-	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">		<!-- importation de /public/css/app.css -->
+	<title>{% block title %}Spécialiste dus jeux éducatifs - Playducatif{% endblock %}</title>
+
+	<!-- importation de /public/css/app.css -->
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">		
 	<script src="https://kit.fontawesome.com/7a4f2fb9ce.js" crossorigin="anonymous"></script>
 		
 	<!-- Feuilles de style -->
@@ -41,6 +55,7 @@
 
 </body>
 
+<!-- Cookies avec tarte au citron -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tarteaucitronjs/1.9.7/tarteaucitron.js"></script>
 
         <script type="text/javascript"> 

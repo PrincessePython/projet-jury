@@ -48,33 +48,38 @@ class CartController extends AbstractController
 
         if(isset($_POST['id_product']) && isset($_POST['qqty'])) {
             // Je remplie les-sous tableaux du panier
+            $position = array_search($_POST['id_product'], $panier['id_product']);
+            if($position === false){
+                //  Je cherche les infos des produits dans la bdd anfin de recuper son prix, le titre et la reference 
+                $product = $productsRepository->find($_POST['id_product']);
+                $images = $product->getImages();
+                if (isset($images[0])){
+                    $image = $images[0];
+                    $panier['image'][] = $image->getPath();
+                }else{
+                    $panier['image'][] = '350x350.png';
 
-            //  Je cherche les infos des produits dans la bdd anfin de recuper son prix, le titre et la reference 
-            $product = $productsRepository->find($_POST['id_product']);
-            $images = $product->getImages();
-            if (isset($images[0])){
-                $image = $images[0];
-                $panier['image'][] = $image->getPath();
+                }
+
+                // Je rajoute le titre et le prix dans le sous-indices de panier
+
+                $panier['id_product'][] = $_POST['id_product'];
+                $panier['qqty'][] = $_POST['qqty'];
+                $panier['title'][] = $product->getName(); 
+                $panier['price'][] = $product->getPrice()/100 ;
+                $panier['reference'][] = $product->getProductReference();
             }else{
-                $panier['image'][] = '350x350.png';
-
+                // le produit est present et la postion contient l'indice
+                $panier['qqty'][$position] += $_POST['qqty'];
             }
+            $session->set('cart', $panier);
 
-            // Je rajoute le titre et le prix dans le sous-indices de panier
-
-            $panier['id_product'][] = $_POST['id_product'];
-            $panier['qqty'][] = $_POST['qqty'];
-            $panier['title'][] = $product->getName(); 
-            $panier['price'][] = $product->getPrice()/100 ;
-            $panier['reference'][] = $product->getProductReference();
-            
-
+            return $this->redirectToRoute('panier_index');
         }
         // var_dump($panier);
         
         
         // On met à jour le panier dans la session
-        $session->set('cart', $panier);
 
         // Je recoupere le panier
 
@@ -84,16 +89,26 @@ class CartController extends AbstractController
 
         //var_dump($session);
 
+        $totalQqty = 0;
+        $totalAmmount = 0;
+        for ($i=0; $i < count($panier['id_product']) ; $i++) { 
+            $totalAmmount += $panier['qqty'][$i]*$panier['price'][$i];
+            $totalQqty += $panier['qqty'][$i];
+        }
+
         $nbItems = count($panier['id_product']);
+
         return $this->render('cart/index.html.twig',[
             'panier' => $panier,
             'nbItems' => $nbItems,
-            'message' => ''
+            'message' => '',
+            'totalAmmount' => $totalAmmount,
+            'totalQqty' => $totalQqty,
         ]);
 
         //calculer la quantité total des produits ajoutés
         // $infoPanierQQT = [];
-        // $totalPanierPrix = [];     
+        // $totalPanierPrix = [];
                     
     }
 
@@ -121,7 +136,10 @@ class CartController extends AbstractController
             return $this->render('cart/index.html.twig',[
                 'panier' => $panier,
                 'nbItems' => $nbItems,
-                'message' => 'Votre comande a bien été enregistée, merci de vous envoyer un cheque à l\'adresse suivante: 1 rue du Temple 75001 Paris',
+                'message' => 'Votre comande a bien été enregistée, merci de nous envoyer un cheque à l\'adresse suivante: 1 rue du Temple 75001 Paris',
+                'totalAmmount' => 0,
+                'totalQqty' => 0,
+    
             ]);
     
     }
@@ -152,6 +170,9 @@ class CartController extends AbstractController
                 'panier' => $panier,
                 'nbItems' => $nbItems,
                 'message' => 'Votre panier est vide ! ',
+                'totalAmmount' => 0,
+                'totalQqty' => 0,
+    
             ]);
     
     }

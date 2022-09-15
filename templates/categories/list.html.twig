@@ -1,7 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Liste des produits
-{% endblock %}
+{% block title %}Spécialiste du jeu éducatif - Playeducatif{% endblock %}
 
 {% block body %}
 	{# {{ dump() }} #}
@@ -21,7 +20,7 @@
                     <div class="card h-100">
                     {% if product.getImages() is not null and product.getImages() is not empty %}
                         {% for img in product.getImages() [:1]  %}
-                            <img src="{{ asset("ressources/images/" ~ img.path) }}" class="card-img-top" alt="category image">
+                            <img src="{{ asset("ressources/images/" ~ img.path) }}" class="card-img-top" alt="jeu-educatif">
                         {% endfor %}
                     {% else %}
                         <img src="{{ asset("ressources/images/350x350.png") }}" class="card-img-top" alt="category image">

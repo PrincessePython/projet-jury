@@ -1,12 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Spécialiste des jeux éducatifs - Playducatif{% endblock %}
 
 
 {% block body %}
 	<section class="container">
+	<div id="page-title" class="text-start mb-4">
+			<h1>Playducatif - jeux éducatifs pour les énfants du 0 à 14 ans</h1>
+		</div>
 
-		<div class="img-fluid img-responsive">
+		<div class="img-fluid img-responsive  my-4">
 			<img class="img-fluid img-responsive" src="{{ asset('ressources/images/banner-homepage-eg.jpg') }}" alt="banner" >
 		</div>
 
@@ -31,7 +34,10 @@
 		{{ dump() }}; 
 		#}
 
-		<div id="cat-homepage" class="row row-cols-1 row-cols-md-4 g-4 mt-3">
+		<div id="categories" class="my-4">
+			<h2>Découvrez tous nos catégories des jeux éducatifs</h2>
+		</div>
+		<div id="cat-homepage" class="row row-cols-1 row-cols-md-4 g-4">
 			{% for category in categories %}
 				<div class="col">
 					<div class="card h-100">
