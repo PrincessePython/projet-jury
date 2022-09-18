@@ -24,8 +24,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ 'panier' }}">Panier</a>
             </li>
-
-
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_contact_us') }}">Nous contacter</a>
+            </li>
         </ul>
 
     
@@ -48,10 +49,10 @@
                     <a href="{{ path('app_logout') }}" class="nav-link">Me déconnecter</a>
                 </li>
             {% else %}
-                <li class="nav-item">
+                <li class="nav-item me-3">
                     <a href="{{ path('app_login') }}" class="nav-link">Me connecter</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item me-3">
                     <a href="{{ path('app_register') }}" class="nav-link">M'inscrire</a>
                 </li>
             {% endif %}

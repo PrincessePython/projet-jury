@@ -18,10 +18,12 @@
 			</div>
 			{% endif %}
 	</div>
+
 	<div class="card my-3">
 		<div class="row">
 
 			<div class="col-md-8 cart">
+				<!-- Partie tableau de panier avec l'affichage de informations relatives aux produits ajoutés-->
 				<table class="table table-bordered">
 					<thead class="text-dark bg-light">
 						<tr>
@@ -36,6 +38,7 @@
 							<th>Prix</th>
 						</tr>
 					</thead>
+
 					<tbody>
 						{% if nbItems > 0 %}
 						{% set limit = nbItems - 1 %}
@@ -65,15 +68,14 @@
 					</tbody>
 
 									
-					{# <tr>
-						<th colspan="6">Total de votre commande est PRICE euros</th>							
-					</tr> #}
+			<!-- Lien pour  continuer faire les achats -->
 			<div class="d-flex justify-content-left my-3">
 					<a href="{{ path('products') }}"><i class="fa-solid fa-arrow-left"></i><span class="ms-3">Continuer mon shopping</span></a>
 			</div>
 
-				</table>
 			</div>
+
+			<!-- Partie droite de panier -->
 			<div class="col-md-4 summary  border-start">
 				<div>
 					<h5>
@@ -83,21 +85,17 @@
 				<hr>
 
 				<div class="row">	
-				{# {% for totalQuantity in panier %}
-					{{ nbItems }}
-				{% endfor %}								 #}
 					<div class="col text-right" >Vous avez {{ totalQqty }} articles</div>
 					<div class="col text-right">Prix sans livraison : {{ totalAmmount }}€</div>
 				</div>
-				
 
 				<form class="mt-3">
 					<p>Livraison</p>
-
 					<p class="text-active">Livraison standarde domicile &euro;5.99</p>
-	
 					{# <p class="mt-3">Adresse de livraison</p> #}
 				</form>
+
+				<!-- Calcul de prix de livraison -->
 				{% if panier.qqty %}
 				<div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
 					<div class="col">Prix Total : </div>

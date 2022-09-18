@@ -1,12 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Reset your password{% endblock %}
+{% block title %}<title>Changez votre mot de passe | Playducatif - spécialiste des jeux éducatifs</title>{% endblock %}
 
 {% block body %}
-    <h1>Reset your password</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12">
+            <h1>Changez votre mot de passe</h1>
+        </div>
 
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.plainPassword) }}
-        <button class="btn btn-primary">Reset password</button>
-    {{ form_end(resetForm) }}
+        <div class="col-sm-6 mx-auto">
+            {{ form_start(resetForm) }}
+                {{ form_row(resetForm.plainPassword) }}
+                <button class="btn btn-primary">Reset password</button>
+            {{ form_end(resetForm) }}        
+        </div>
+    </div>
+</div>
+
 {% endblock %}

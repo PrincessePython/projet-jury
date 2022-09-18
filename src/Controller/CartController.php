@@ -44,8 +44,6 @@ class CartController extends AbstractController
             $panier = $session->get('cart');
         }
 
-        // Est-ce que l'utilisateur demande un ajout dans panier ?
-
         if(isset($_POST['id_product']) && isset($_POST['qqty'])) {
             // Je remplie les-sous tableaux du panier
             $position = array_search($_POST['id_product'], $panier['id_product']);
@@ -79,7 +77,7 @@ class CartController extends AbstractController
         // var_dump($panier);
         
         
-        // On met à jour le panier dans la session
+        // Je mets à jour le panier dans la session
 
         // Je recoupere le panier
 

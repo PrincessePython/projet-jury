@@ -6,7 +6,7 @@
 {% block body %}
 	<section class="container">
 	<div id="page-title" class="text-start mb-4">
-			<h1>Playducatif - jeux éducatifs pour les énfants du 0 à 14 ans</h1>
+			<h1>Playducatif - des jeux éducatifs pour les enfants du 0 à 14 ans</h1>
 		</div>
 
 		<div class="img-fluid img-responsive  my-4">
@@ -35,7 +35,7 @@
 		#}
 
 		<div id="categories" class="my-4">
-			<h2>Découvrez tous nos catégories des jeux éducatifs</h2>
+			<h2>Découvrez toutes nos catégories de jeux éducatifs</h2>
 		</div>
 		<div id="cat-homepage" class="row row-cols-1 row-cols-md-4 g-4">
 			{% for category in categories %}
@@ -44,7 +44,7 @@
 						<img src="{{ asset("ressources/images/" ~ category.photo) }}" class="card-img-top" alt="category image">
 						<div class="card-body">
 							<h3 class="card-title">{{ category.name }}</h3>
-							<a href="{{ path('categories_list', {slug:category.slug} )}}" class="btn btn-info">Voir les produits</a>
+							<a href="{{ path('categories_list', {slug:category.slug} )}}" class="btn btn-outline-primary">Voir les produits</a>
 						</div>
 					</div>
 				</div>
